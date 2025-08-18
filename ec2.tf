@@ -35,6 +35,7 @@ resource "aws_security_group" "allow_user_to_connect" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+
   }
 
   ingress {
@@ -44,6 +45,13 @@ resource "aws_security_group" "allow_user_to_connect" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+ingress{
+description = "port 3001 allow"
+from_port      = 3001
+to_port        = 3001
+protocol       = "tcp"
+cidr_block     = ["0.0.0.0/0"]
+}
 
   tags = {
     Name = "mysecurity"
